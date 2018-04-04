@@ -205,7 +205,7 @@ public class Palette extends Stage implements Initializable {
     }
 
     private void moveCursor(double x, double y) {
-        int offset = SIZE / 2 + 10;
+        int offset = SIZE / 2;
         cursor.setTranslateX(x + offset);
         cursor.setTranslateY(y + offset);
     }
