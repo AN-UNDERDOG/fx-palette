@@ -104,4 +104,22 @@
             </plugin>
         </plugins>
     </build>
+    <dependencies>
+        <dependency>
+            <groupId>kresdl.geometry</groupId>
+            <artifactId>geometry</artifactId>
+            <version>0.0.1-SNAPSHOT</version>            
+        </dependency>
+        <dependency>
+            <groupId>kresdl.utilities</groupId>
+            <artifactId>utilities</artifactId>
+            <version>0.0.1-SNAPSHOT</version>            
+        </dependency>
+        <dependency>
+            <groupId>kresdl.fxutilities</groupId>
+            <artifactId>fxutilities</artifactId>
+            <version>1.0-SNAPSHOT</version>            
+        </dependency>
+    </dependencies>
+
 </project>
