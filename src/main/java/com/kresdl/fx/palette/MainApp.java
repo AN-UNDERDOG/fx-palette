@@ -14,12 +14,12 @@ public class MainApp extends Application {
         Rectangle r = new Rectangle(200, 100);
         stage.setScene(new Scene(new Group(r)));
         stage.setResizable(false);
-        
-        Palette palette = Palette.create(stage);
-        palette.setColor(Color.RED);
-        r.fillProperty().bind(palette.colorProperty());        
         stage.show();
         stage.sizeToScene();
+        
+        Palette palette = Palette.create(r, 100, 80);
+        palette.setColor(Color.RED);
+        r.fillProperty().bind(palette.colorProperty());        
         if (palette.select()) {
             Color c = palette.getColor();
             System.out.println(c.toString());

@@ -36,6 +36,9 @@ import javafx.stage.Window;
 import com.kresdl.utilities.Misc;
 import com.kresdl.fx.utilities.Colors;
 
+/**
+ * FX Palette
+ */
 public class Palette extends Stage implements Initializable {
 
     @FXML
@@ -125,7 +128,7 @@ public class Palette extends Stage implements Initializable {
         }).start();
     }
 
-    public static final int SIZE = 320;
+    static final int SIZE = 320;
     private final ObjectProperty<Color> color = new SimpleObjectProperty<>();
     private final Path cursor = new Path();
     private boolean ok;
@@ -157,43 +160,68 @@ public class Palette extends Stage implements Initializable {
         }
     }
 
-    public static Palette create(Node node) {
-        Palette p = create(node.getScene().getWindow());
+    /**
+     * Create palette.
+     * @param node node which palette relates to
+     * @param x horizontal offset from owners left side
+     * @param y vertical offset from owners top side
+     * @return palette
+     */
+    public static Palette create(Node node, double x, double y) {
         Bounds b = node.localToScreen(node.getBoundsInLocal());
-        p.setX(b.getMinX() - 20);
-        p.setY(b.getMaxY() + 10);
+        return create(node.getScene().getWindow(), b.getMinX() + x, b.getMinY() + y);            
+    }
+
+    /**
+     * Create palette.
+     * @param window owner
+     * @param x x position
+     * @param y y position
+     * @return palette
+     */
+    public static Palette create(Window window, double x, double y) {
+        Palette p = create();
+        p.initOwner(window);
+        p.setX(x);
+        p.setY(y);
+        p.initModality(Modality.WINDOW_MODAL);
         return p;
     }
 
-    public static Palette create(Window window) {
-        Palette palette = create();
-        palette.initOwner(window);
-        palette.initModality(Modality.WINDOW_MODAL);
-        return palette;
-    }
-
+    /**
+     * Display the palette and wait for user to select a color or abort.
+     * @return ok/cancel
+     */
     public boolean select() {
         showAndWait();
         return ok;
     }
 
+    /**
+     * Get color property.
+     * @return color property
+     */
     public ObjectProperty<Color> colorProperty() {
         return color;
     }
 
+    /**
+     * Get color.
+     * @return color
+     */
     public Color getColor() {
         return color.get();
     }
 
+    /**
+     * Set color.
+     * @param c 
+     */
     public void setColor(Color c) {
         color.set(c);
     }
 
-    public boolean isCanceled() {
-        return !ok;
-    }
-
-    public Palette() {
+    private Palette() {
         super();
     }
 
