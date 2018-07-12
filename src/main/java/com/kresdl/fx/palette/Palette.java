@@ -1,4 +1,4 @@
-package kresdl.palette;
+package com.kresdl.fx.palette;
 
 import java.io.IOException;
 import java.net.URL;
@@ -33,8 +33,8 @@ import javafx.scene.shape.PathElement;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.Window;
-import kresdl.utilities.Misc;
-import kresdl.fxutilities.Colors;
+import com.kresdl.utilities.Misc;
+import com.kresdl.fx.utilities.Colors;
 
 public class Palette extends Stage implements Initializable {
 

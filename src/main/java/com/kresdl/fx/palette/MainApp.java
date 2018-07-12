@@ -1,4 +1,4 @@
-package kresdl.palette;
+package com.kresdl.fx.palette;
 
 import javafx.application.Application;
 import static javafx.application.Application.launch;
